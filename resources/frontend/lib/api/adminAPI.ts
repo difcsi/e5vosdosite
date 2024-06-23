@@ -119,6 +119,40 @@ export const adminAPI = baseAPI
                     },
                 }),
             }),
+            createUser: builder.mutation<
+                User,
+                Omit<User, 'id' | 'activity' | 'teams'>
+            >({
+                query: (data) => ({
+                    url: routeSwitcher('users.store'),
+                    method: 'POST',
+                    body: data,
+                }),
+                invalidatesTags: (res, err, arg) =>
+                    err || !res
+                        ? []
+                        : [
+                              { type: 'User', id: res.id },
+                              { type: 'User', id: 'LIST' },
+                          ],
+            }),
+            updateUser: builder.mutation<
+                User,
+                Omit<User, 'activity' | 'teams'>
+            >({
+                query: (data) => ({
+                    url: routeSwitcher('users.update', { userId: data.id }),
+                    method: 'PUT',
+                    body: data,
+                }),
+                invalidatesTags: (res, err, arg) =>
+                    err || !res
+                        ? []
+                        : [
+                              { type: 'User', id: res.id },
+                              { type: 'User', id: 'LIST' },
+                          ],
+            }),
         }),
     })
 

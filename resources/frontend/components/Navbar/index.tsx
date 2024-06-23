@@ -55,7 +55,7 @@ const CustomNavbar = () => {
                     ) : (
                         <Donci className="mx-auto animate-pulse fill-red" />
                     )}
-                    <span className=" mt-2 w-full rounded-full bg-gray px-3 py-1 text-center">
+                    <span className=" mt-2 w-full rounded-full bg-slate-200 px-3 py-1 text-center dark:bg-gray">
                         {user.e5code ?? locale.noe5code}
                     </span>
                 </Dialog>

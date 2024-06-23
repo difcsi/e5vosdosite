@@ -320,14 +320,14 @@ const EventReader = ({
                         {locale.signup_type(event.signup_type)}
                     </p>
                     {user && canSignup && (
-                        <div className="mt-2 w-full rounded-lg  bg-gray-600 p-2 md:mb-0 ">
+                        <div className="mt-2 w-full rounded-lg  bg-slate-200 p-2 dark:bg-gray-600 md:mb-0 ">
                             <h3 className="text-center font-bold">
                                 {locale.singup}
                             </h3>
                             <div className="mt-2 flex w-full flex-row items-center justify-center rounded-lg border-2">
                                 <Form.Select
                                     ref={attenderSelect}
-                                    className=" !max-w-none flex-1 !rounded-l-lg"
+                                    className=" !max-w-none flex-1 !rounded-l-lg bg-slate-200 dark:bg-gray"
                                 >
                                     {event.signup_type !== SignupType.Team &&
                                         user.e5code && (
@@ -403,7 +403,7 @@ const EventReader = ({
                         )}
                         {isAdmin(user) && (
                             <Button
-                                className="!mb-2 !rounded-md text-white"
+                                className="!mb-2 !rounded-md"
                                 variant="outline-danger"
                                 onClick={async () => {
                                     if (!(await confirmDelete())) return
@@ -431,7 +431,7 @@ const EventReader = ({
                                     />
                                 </Dialog>
                                 <Button
-                                    className="!mb-2 !rounded-md text-white"
+                                    className="!mb-2 !rounded-md"
                                     variant="outline-info"
                                     onClick={() =>
                                         setIsPermissionDialogOpen(true)
@@ -444,7 +444,7 @@ const EventReader = ({
                         {isEventSignupRelevant &&
                             (isAdmin(user) || isUserOrganiser) && (
                                 <Button
-                                    className="!mb-2 !rounded-md text-white"
+                                    className="!mb-2 !rounded-md"
                                     variant="outline-warning"
                                     onClick={async () => {
                                         if (!(await confirmCloseSignup()))

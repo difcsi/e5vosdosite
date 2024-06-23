@@ -66,7 +66,7 @@ const useScannerHandler = ({
             } catch (e) {
                 return
             }
-            let memberAttendances: TeamMemberAttendance[] = []
+            const memberAttendances: TeamMemberAttendance[] = []
 
             for (const member of team.members.filter(
                 (member) => member.pivot.role !== TeamMemberRole.invited

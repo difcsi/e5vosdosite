@@ -5,6 +5,8 @@ import { ReactNode } from 'react'
 
 import Locale from 'lib/locale'
 
+import { ThemeSwitch } from 'components/themeSwitch'
+
 import { ReactComponent as Caret } from './assets/caret.svg'
 import { ReactComponent as MobileMenu } from './assets/mobileMenu.svg'
 
@@ -20,7 +22,7 @@ const Brand = ({
     const Tag = href ? 'a' : 'span'
     return (
         <Tag href={href} className="flex items-center" onClick={onClick}>
-            <Donci fill="white" className="mr-5 h-full w-12" />
+            <Donci className="mr-5 h-full w-12 fill-black dark:fill-white" />
             <span className="self-center whitespace-nowrap text-xl font-semibold">
                 {children}
             </span>
@@ -98,7 +100,7 @@ const Link = ({ href, children }: { href: string; children: ReactNode }) => {
         <li>
             <a
                 href={href}
-                className="block rounded py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:p-0 md:hover:bg-inherit md:hover:text-gray-50"
+                className="block rounded py-2 pl-3 pr-4 text-black hover:bg-gray-100 dark:text-white md:p-0 md:hover:bg-inherit md:hover:text-gray-50"
             >
                 {children}
             </a>
@@ -123,30 +125,37 @@ const Navbar = ({
     })
     const isMobile = useIsMobile()
     return (
-        <nav className="mb-2 rounded border-gray-200 bg-gray-700 px-2 py-2 text-white">
+        <nav className="mb-2 rounded border-gray-200 bg-slate-50 px-2 pt-2 text-black dark:bg-gray-700 dark:text-white">
             <Menu as="div" className="">
                 {({ open }) => (
                     <div>
                         <div className="container mx-auto flex flex-wrap items-center justify-between">
                             <>{brand}</>
                             {import.meta.env.DEV && (
-                                <div className="rounded-lg bg-red-500 px-4 text-2xl font-bold text-gray-700">
+                                <div className="rounded-lg bg-red-400 px-4 text-2xl font-bold text-gray-700 dark:bg-red-500">
                                     DEV MODE
                                 </div>
                             )}
-                            <Menu.Button
-                                className="ml-3 inline-flex items-center justify-center rounded-lg  hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 md:hidden"
-                                aria-controls="mobile-menu-2"
-                                aria-expanded="false"
-                            >
-                                <span className="sr-only">
-                                    {locale.openMenu}
-                                </span>
-                                <MobileMenu fill="white" className="h-10" />
-                            </Menu.Button>
-                            <ul className="mt-0 hidden flex-row space-x-8 rounded-lg p-4 text-sm font-medium md:flex">
-                                {children}
-                            </ul>
+
+                            <div className="flex">
+                                <ul className="mt-0 hidden flex-row space-x-8 rounded-lg p-4 text-sm font-medium md:flex">
+                                    {children}
+                                </ul>
+
+                                <div className="flex flex-wrap items-center justify-between">
+                                    <ThemeSwitch />
+                                    <Menu.Button
+                                        className="ml-3 inline-flex items-center justify-center rounded-lg  hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 md:hidden"
+                                        aria-controls="mobile-menu-2"
+                                        aria-expanded="false"
+                                    >
+                                        <span className="sr-only">
+                                            {locale.openMenu}
+                                        </span>
+                                        <MobileMenu className="h-10 fill-black dark:fill-white" />
+                                    </Menu.Button>
+                                </div>
+                            </div>
                         </div>
                         <Transition
                             show={!isMobile || open}

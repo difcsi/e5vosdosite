@@ -54,13 +54,13 @@ const EventsPage = () => {
                 </h1>
             </div>
             <div className="mx-auto my-3 flex w-full gap-2 text-center">
-                <Form.Group className="!mb-0 flex w-full gap-2 rounded-lg bg-gray-600 pl-4">
+                <Form.Group className="!mb-0 flex w-full gap-2 rounded-lg bg-slate-300 pl-4 dark:bg-gray-600">
                     <Form.Label className=" flex items-center gap-2 no-underline">
                         <FaSearch />
                         {locale.search}
                     </Form.Label>
                     <Form.Control
-                        className="!mb-0 !w-full rounded-r-md !border-0 !bg-gray"
+                        className="!mb-0 !w-full rounded-r-md !border-0 !bg-slate-200 dark:!bg-gray"
                         onChange={handleSearchChange}
                     />
                 </Form.Group>
@@ -82,7 +82,7 @@ const EventsPage = () => {
             {isEventsFetching ? (
                 <Loader />
             ) : (
-                <div className="grid-cols-4 gap-2 md:grid">
+                <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {filteredEvents.map((event) => (
                         <EventCard event={event} key={event.id} />
                     ))}

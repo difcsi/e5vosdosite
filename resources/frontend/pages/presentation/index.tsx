@@ -29,7 +29,7 @@ const locale = Locale({
         noe5code: 'Nem adtad meg az E5 kódot!',
         nologin: 'Nem vagy bejelentkezve!',
         sloterror: (
-            <span className="text-red-300">
+            <span className="text-red-700 dark:text-red-300">
                 Nem betöltött eseménysáv! Valószínűleg programsáv!
             </span>
         ),
@@ -45,10 +45,7 @@ const locale = Locale({
         noe5code: 'You have not entered your E5 code!',
         nologin: 'You are not logged in!',
         sloterror: (
-            <span
-                className="text
-      -red-300"
-            >
+            <span className="text-red-300">
                 Event slot not loaded! Probably an event slot!
             </span>
         ),
@@ -68,7 +65,7 @@ const SelectField = ({
         <div className="flex flex-1 flex-col items-stretch justify-center gap-4 text-center md:mx-3 md:flex-row md:gap-8">
             <div className="flex-1">
                 <h3>{locale.selectedPresentation}</h3>
-                <div className="rounded-lg bg-green-600 p-3 ">
+                <div className="rounded-lg bg-green-400 p-3 dark:bg-green-600 ">
                     {selectedPresentation?.name ??
                         locale.presentationNotYetSelected}
                 </div>
@@ -179,7 +176,7 @@ const PresentationsPage = () => {
 
     const selectSlotById = useCallback(
         (id: number) => {
-            let newSlot = slots?.findIndex((slot) => slot.id === id)
+            const newSlot = slots?.findIndex((slot) => slot.id === id)
             if (newSlot !== undefined) setcurrentSlot(newSlot)
         },
         [slots]

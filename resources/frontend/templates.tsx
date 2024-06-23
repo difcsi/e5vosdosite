@@ -9,7 +9,7 @@ export const BaseLayout = ({ children }: { children: ReactNode }) => {
         <>
             <DebugDump />
             <Navbar />
-            <main className="mx-2">{children}</main>
+            <main className="px-2">{children}</main>
             <Footer />
         </>
     )

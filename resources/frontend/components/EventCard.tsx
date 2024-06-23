@@ -25,7 +25,7 @@ const EventCard = ({
     const navigate = useNavigate()
     return (
         <div
-            className={`mb-3 flex flex-col justify-between rounded-lg bg-gray-600 p-2 ${
+            className={`mb-3 flex flex-col justify-between rounded-lg bg-slate-200 p-2 dark:bg-gray-600 ${
                 className ?? ''
             }`}
         >
@@ -36,7 +36,7 @@ const EventCard = ({
             </div>
             <div>
                 <div className="flew-row mb-1 mt-2 flex w-full justify-between">
-                    <div className="rounded-full bg-gray-400 px-3">
+                    <div className="rounded-full bg-slate-400 px-3 dark:bg-gray-400">
                         {event.location?.name ?? 'Ismeretlen'}
                     </div>
                     {(isAdmin(user) || isTeacherAdmin(user)) && (

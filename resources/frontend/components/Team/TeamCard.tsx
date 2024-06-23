@@ -117,8 +117,7 @@ const TeamCard = ({
         <Card
             title={team.name}
             subtitle={team.code}
-            className="!mx-0
- max-w-4xl md:!mx-auto"
+            className="!mx-0 max-w-4xl md:!mx-auto"
             titleClassName="text-3xl"
         >
             {team.description}
@@ -178,7 +177,7 @@ const TeamCard = ({
                 {team.members?.map((member) => (
                     <div
                         key={member.id}
-                        className="mb-2 items-center rounded-lg bg-gray p-2 md:grid md:grid-cols-2 lg:grid-cols-3"
+                        className="mb-2 items-center rounded-lg bg-slate-200 p-2 dark:bg-gray md:grid md:grid-cols-2 lg:grid-cols-3"
                     >
                         <div className="grid-col-span py-2 text-center sm:mr-5 sm:text-left">
                             <span className="font-semibold">
@@ -230,8 +229,11 @@ const TeamCard = ({
                 ))}
             </div>
             {currentUsersMembership?.pivot.role === TeamMemberRole.leader && (
-                <div className="mt-2 flex w-full rounded-lg bg-gray">
-                    <UserSearchCombobox onChange={setSelectedUser} />
+                <div className="mt-2 flex w-full rounded-lg bg-slate-300 dark:bg-gray">
+                    <UserSearchCombobox
+                        onChange={setSelectedUser}
+                        className="bg-slate-300 dark:bg-gray"
+                    />
                     <Button
                         className="!w-full rounded-l-none rounded-r-lg !outline-none"
                         onClick={async () => {

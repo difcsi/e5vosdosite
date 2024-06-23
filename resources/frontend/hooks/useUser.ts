@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import baseAPI from 'lib/api'
 import { useDispatch, useSelector } from 'lib/store'
 
-const useUser = (redirect: boolean = true, destination?: string) => {
+const useUser = (redirect = true, destination?: string) => {
     const navigate = useNavigate()
     const token = useSelector((state) => state.auth.token)
 

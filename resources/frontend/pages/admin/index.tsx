@@ -2,12 +2,11 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import adminAPI from 'lib/api/adminAPI'
-import { isAdmin, isOperator } from 'lib/gates'
+import { isAdmin } from 'lib/gates'
 import Locale from 'lib/locale'
 
 import { gated } from 'components/Gate'
 import Button from 'components/UIKit/Button'
-import Dialog from 'components/UIKit/Dialog'
 
 const locale = Locale({
     hu: {

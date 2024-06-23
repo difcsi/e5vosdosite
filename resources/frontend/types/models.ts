@@ -25,11 +25,47 @@ export interface TeamMemberAttendance {
     is_present: boolean
 }
 
+export const EJGClass = {
+    sevenA: '7.A',
+    sevenB: '7.B',
+    eightA: '8.A',
+    eightB: '8.B',
+    nineA: '9.A',
+    nineB: '9.B',
+    nineC: '9.C',
+    nineD: '9.D',
+    nineE: '9.E',
+    nineF: '9.F',
+    nineNy: '9.NY',
+    tenA: '10.A',
+    tenB: '10.B',
+    tenC: '10.C',
+    tenD: '10.D',
+    tenE: '10.E',
+    tenF: '10.F',
+    elevenA: '11.A',
+    elevenB: '11.B',
+    elevenC: '11.C',
+    elevenD: '11.D',
+    elevenE: '11.E',
+    elevenF: '11.F',
+    twelveA: '12.A',
+    twelveB: '12.B',
+    twelveC: '12.C',
+    twelveD: '12.D',
+    twelveE: '12.E',
+    twelveF: '12.F',
+    teacher: 'tanár',
+    exstudent: 'öregdiák',
+}
+
+export type EJGClassType = (typeof EJGClass)[keyof typeof EJGClass]
+
 export interface User {
     e5code: string | null
     name: string
     id: number
-    ejg_class: string | null
+    ejg_class: EJGClassType | null
     teams?: Team[]
     permissions?: Permission[]
     activity?: Attender[]

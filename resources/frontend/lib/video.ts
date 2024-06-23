@@ -8,7 +8,7 @@
 export function showVideo(
     stream: MediaStream | null,
     video: HTMLVideoElement,
-    muted: boolean = true
+    muted = true
 ) {
     video.srcObject = stream
     video.volume = muted ? 0 : 1

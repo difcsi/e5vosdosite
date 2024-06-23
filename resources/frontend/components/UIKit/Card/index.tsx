@@ -23,7 +23,7 @@ const Card = ({
     subtitleClassName?: string
 }) => (
     <div
-        className={`mb-3 flex flex-col justify-between rounded-lg bg-gray-600 p-2 ${
+        className={`mb-3 flex flex-col justify-between rounded-lg bg-slate-200 p-2 dark:bg-gray-600 ${
             className ?? ''
         }`}
         {...rest}

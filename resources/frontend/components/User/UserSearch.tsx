@@ -9,7 +9,7 @@ import Form from 'components/UIKit/Form'
 
 const elementName = (e: UserStub) => `${e.name} - ${e.ejg_class}`
 
-const filter = (s: String) => (e: UserStub) =>
+const filter = (s: string) => (e: UserStub) =>
     elementName(e).toLocaleLowerCase().includes(s.toLocaleLowerCase())
 
 const UserSearchCombobox = ({

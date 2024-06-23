@@ -52,7 +52,7 @@ const QRDialog = ({
         {shownQR && (
             <QRCode className="mx-auto my-2 max-w-full" value={shownQR?.code} />
         )}
-        <span className="w-full rounded-full bg-gray px-3 py-1 text-center">
+        <span className="w-full rounded-full bg-slate-200 px-3 py-1 text-center dark:bg-gray">
             {shownQR?.code ?? ''}
         </span>
     </Dialog>
@@ -101,7 +101,7 @@ const YourTeamsPage = () => {
             <div>
                 <Title>{locale.your_teams}</Title>
                 <div className="gap-5 md:grid md:grid-cols-3 xl:grid-cols-4">
-                    <div className="mb-2 w-full rounded-lg bg-gray-600 px-6 py-4">
+                    <div className="mb-2 w-full rounded-lg bg-slate-200 px-6 py-4 dark:bg-gray-600">
                         <h3 className="mb-4 text-center text-2xl font-bold">
                             {locale.new_team}
                         </h3>
